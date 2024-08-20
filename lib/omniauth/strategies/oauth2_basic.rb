@@ -24,12 +24,6 @@ class OmniAuth::Strategies::Oauth2Basic < ::OmniAuth::Strategies::OAuth2
     end
   end
 
-  def authorize_params
-    super.tap do |params|
-      params[:appid] = params.delete("client_id") if params["client_id"]
-    end
-  end
-
   def callback_url
     Discourse.base_url_no_prefix + script_name + callback_path
   end
