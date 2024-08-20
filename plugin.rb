@@ -32,3 +32,9 @@ DiscoursePluginRegistry.define_filtered_register :oauth2_basic_required_json_pat
 auth_provider title_setting: "oauth2_button_title", authenticator: OAuth2BasicAuthenticator.new
 
 require_relative "lib/validators/oauth2_basic/oauth2_fetch_user_details_validator"
+
+# 加载自定义策略
+require_relative "lib/omniauth/strategies/oauth2_basic"
+
+# 注册使用这个自定义策略
+auth_provider title_setting: "oauth2_button_title", authenticator: OAuth2BasicAuthenticator.new
